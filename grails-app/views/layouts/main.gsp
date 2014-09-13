@@ -17,9 +17,10 @@
 		<g:layoutHead/>
 	</head>
 	<body>
-		<div id="grailsLogo" role="banner"><a href="http://grails.org"><asset:image src="grails_logo.png" alt="Grails"/></a></div>
+		<div style="text-align: center;">
+            <h1 style="padding-top: 2ex;"><g:message code="reg.echse.title"/></h1>
+        </div>
 		<g:layoutBody/>
-		<div class="footer" role="contentinfo"></div>
 		<div id="spinner" class="spinner" style="display:none;"><g:message code="spinner.alt" default="Loading&hellip;"/></div>
 	</body>
 </html>
