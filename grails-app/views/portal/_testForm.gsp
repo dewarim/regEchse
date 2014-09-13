@@ -49,7 +49,7 @@
 
             </tr>
             <tr>
-                <td><g:message code="regex.test.1"/></td>
+                <td><g:message code="regex.expression"/></td>
                 <td>
                     <g:textField name="regex" size="80" value="${check?.regex}"/>
                 </td>
@@ -62,9 +62,6 @@
                     onSuccess="\$('#regex-fail').hide();"
                                       value="${message(code: 'regex.test')}"/></td>
             </tr>
-            %{--<tr>--}%
-                %{--<td><g:message code="regex.test.2"/></td>--}%
-            %{--</tr>--}%
             </tbody>
         </table>
     </fieldset>
