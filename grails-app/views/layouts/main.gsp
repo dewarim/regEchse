@@ -22,5 +22,17 @@
         </div>
 		<g:layoutBody/>
 		<div id="spinner" class="spinner" style="display:none;"><g:message code="spinner.alt" default="Loading&hellip;"/></div>
+    <footer>
+        <p style="text-align: center;padding-bottom: 2ex;">
+            <g:link controller="portal" action="index">
+                <g:message code="link.to.test.page"/>
+            </g:link>  
+            &nbsp;|&nbsp;
+            <g:link controller="portal" action="benchmark">
+                <g:message code="link.to.benchmark.page"/>
+            </g:link>
+            
+        </p>
+    </footer>
 	</body>
 </html>
