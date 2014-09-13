@@ -7,7 +7,6 @@
 
 <body>
 
-
 <div id="regex-form">
     <g:render template="testForm"/>
 </div>

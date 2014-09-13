@@ -23,8 +23,10 @@ public class CheckRegex {
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(text1);
         firstOk = matcher.find();
-        Matcher secondMatcher = pattern.matcher(text2);
-        secondOk = secondMatcher.find();
+        if(text2 != null) {
+            Matcher secondMatcher = pattern.matcher(text2);
+            secondOk = secondMatcher.find();
+        }
     }
 
     public String getText1() {

@@ -2,9 +2,7 @@
 
     <fieldset>
         <legend><g:message code="regex.form.legend"/></legend>
-        <div id="regex-fail">
-            &nbsp;
-        </div>
+
         <table>
             <tbody>
             <tr>
@@ -18,18 +16,15 @@
                             <asset:image src="no.png" alt="not ok"/>
                         </g:else>
                     </g:if>
-                
+
                 </td>
                 <td>
                     <g:textArea style="width: 80ex;" name="firstText" value="${check?.text1}" cols="80" rows="5"/>
                 </td>
-                <td>
-                 
-                </td>
             </tr>
             <tr>
                 <td><g:message code="regex.text.2"/>
-                <br>
+                    <br>
                     <g:if test="${check?.text2}">
                         <g:if test="${check.secondOk}">
                             <asset:image src="ok.png" alt="ok"/>
@@ -40,13 +35,9 @@
                     </g:if>
                 </td>
                 <td>
-                    <g:textArea style="width: 80ex;" name="secondText" cols="80" 
+                    <g:textArea style="width: 80ex;" name="secondText" cols="80"
                                 rows="5" value="${check?.text2}"/>
                 </td>
-                <td>
-                  
-                </td>
-
             </tr>
             <tr>
                 <td><g:message code="regex.expression"/></td>
@@ -57,10 +48,15 @@
             <tr>
                 <td></td>
                 <td><g:submitToRemote url="[action: 'testRegex']"
-                    update="[success:'regex-form', failure:'regex-fail']"
-                    onFailure="\$('#regex-fail').show();"
-                    onSuccess="\$('#regex-fail').hide();"
-                                      value="${message(code: 'regex.test')}"/></td>
+                                      update="[success: 'regex-form', failure: 'regex-fail']"
+                                      onFailure="\$('#regex-fail').show();"
+                                      onSuccess="\$('#regex-fail').hide();"
+                                      value="${message(code: 'regex.test')}"/>
+
+                    <div id="regex-fail" style="color: red;background-color: #ffffff;width:80%;">
+                        &nbsp;
+                    </div>
+                </td>
             </tr>
             </tbody>
         </table>
