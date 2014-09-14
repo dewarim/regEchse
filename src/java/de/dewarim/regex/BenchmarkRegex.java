@@ -58,6 +58,7 @@ public class BenchmarkRegex {
         BenchmarkResult result = benchmark(pattern1, text, iterations);
         runtime1 = result.getRuntime();
         found1 = result.isFound();
+        
         result = benchmark(pattern2, text, iterations);
         runtime2 = result.getRuntime();
         found2 = result.isFound();

@@ -40,6 +40,14 @@
                 </td>
             </tr>
             <tr>
+                <td></td>
+                <td>
+                    <g:message code="benchmark.useIgnoreCaseAndUnicode"/>
+                    <g:checkBox name="useIgnoreCaseAndUnicode" checked="${check?.useIgnoreCaseAndUnicode}"/>
+                </td>
+            </tr>
+
+            <tr>
                 <td><g:message code="regex.expression"/></td>
                 <td>
                     <g:textField name="regex" size="80" value="${check?.regex}"/>

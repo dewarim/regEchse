@@ -4,9 +4,12 @@ class PortalController {
 
     def index() { }
     
-    def testRegex(String firstText, String secondText, String regex){
+    def testRegex(String firstText, String secondText, String regex, Boolean useIgnoreCaseAndUnicode){
+        if(!useIgnoreCaseAndUnicode){
+            useIgnoreCaseAndUnicode = false
+        }
         try {
-            CheckRegex check = new CheckRegex(firstText, secondText, regex)
+            CheckRegex check = new CheckRegex(firstText, secondText, regex, useIgnoreCaseAndUnicode)
             render(template: "testForm", model: [check: check])
         }
         catch (Exception e){
