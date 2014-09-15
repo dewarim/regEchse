@@ -4,9 +4,14 @@ RegEchse is a simple webapp to test and benchmark Java regular expressions.
 
 It currently contains two pages, one for testing and one for benchmarking.
 
+![regex test page](data/regex_test_page.png)
+
+![regex benchmark page](data/regex_benchmark_page.png)
+
+
 ## Version
 
-This is version 0.1
+This is version 0.1.1
 
 # Installation
 
