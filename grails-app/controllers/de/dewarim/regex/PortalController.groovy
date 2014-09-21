@@ -38,4 +38,12 @@ class PortalController {
             render(status: 500, text:message(code: 'regex.benchmark.fail', args: [e.message]))
         }
     }
+    
+    def about(){
+        
+    }
+    
+    def resources(){
+        
+    }
 }

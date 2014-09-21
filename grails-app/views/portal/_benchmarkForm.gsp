@@ -85,7 +85,7 @@
                 <td><g:submitToRemote url="[action: 'doBenchmark']"
                                       update="[success: 'regex-form', failure: 'regex-fail']"
                                       onFailure="\$('#regex-fail').show();"
-                                      onSuccess="\$('#regex-fail').hide();"
+                                      onSuccess="\$('#regex-fail').hide();resizeTextAreas();"
                                       value="${message(code: 'regex.benchmark')}"/>
 
                     <br>
@@ -101,3 +101,5 @@
     </fieldset>
 
 </g:form>
+
+<g:render template="examples"/>

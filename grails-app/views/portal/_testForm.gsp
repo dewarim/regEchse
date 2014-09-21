@@ -19,7 +19,7 @@
 
                 </td>
                 <td>
-                    <g:textArea style="width: 80ex;" name="firstText" value="${check?.text1}" cols="80" rows="5"/>
+                    <g:textArea style="width: 80ex;" id="firstText" name="firstText" value="${check?.text1}" cols="80" rows="5"/>
                 </td>
             </tr>
             <tr>
@@ -58,7 +58,7 @@
                 <td><g:submitToRemote url="[action: 'testRegex']"
                                       update="[success: 'regex-form', failure: 'regex-fail']"
                                       onFailure="\$('#regex-fail').show();"
-                                      onSuccess="\$('#regex-fail').hide();"
+                                      onSuccess="\$('#regex-fail').hide();resizeTextAreas();"
                                       value="${message(code: 'regex.test')}"/>
 
                     <div id="regex-fail" style="color: red;background-color: #ffffff;width:80%;">
@@ -71,3 +71,4 @@
     </fieldset>
 
 </g:form>
+<g:render template="examples"/>
