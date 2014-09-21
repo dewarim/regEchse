@@ -39,12 +39,14 @@
 <div class="row">
 
     <div class="col-md-3" id="left-column">
+        <!--
         <h3><g:message code="regex.special.characters"/></h3>
         <ul>
             <li>
                 
             </li>
         </ul>
+        -->
     </div>
 
     <div class="col-md-6">
