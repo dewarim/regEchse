@@ -11,7 +11,7 @@ It currently contains two pages, one for testing and one for benchmarking.
 
 ## Version
 
-This is version 0.1.1
+This is version 0.2
 
 # Installation
 
