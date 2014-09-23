@@ -11,7 +11,7 @@
                     <g:message code="regex.text"/>
                 </td>
                 <td>
-                    <g:textArea style="width: 80ex;" name="text" value="${bench?.text}" cols="80" rows="5"/>
+                    <g:textArea style="width: 80ex;" id="firstText" name="text" value="${bench?.text}" cols="80" rows="5"/>
                 </td>
                 <td>
 
