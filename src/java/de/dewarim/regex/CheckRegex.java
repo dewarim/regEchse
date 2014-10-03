@@ -3,6 +3,7 @@ package de.dewarim.regex;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.concurrent.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -12,18 +13,19 @@ public class CheckRegex {
 
     static Logger log = LoggerFactory.getLogger(CheckRegex.class);
 
-    String text1;
-    String text2;
+    final String text1;
+    final String text2;
 
     Boolean firstOk;
     Boolean secondOk;
+    boolean threadFinished = false;
     boolean useIgnoreCaseAndUnicode;
 
     String regex;
 
-    public CheckRegex(String text1, String text2, String regex, boolean useIgnoreCaseAndUnicode) {
-        this.text1 = text1;
-        this.text2 = text2;
+    public CheckRegex(String _text1, String _text2, String regex, boolean useIgnoreCaseAndUnicode) {
+        this.text1 = _text1;
+        this.text2 = _text2;
         this.regex = regex;
         this.useIgnoreCaseAndUnicode = useIgnoreCaseAndUnicode;
 
@@ -34,13 +36,29 @@ public class CheckRegex {
         else {
             pattern = Pattern.compile(regex);
         }
-        Matcher matcher = pattern.matcher(text1);
-        firstOk = matcher.find();
-        if (text2 != null) {
-            Matcher secondMatcher = pattern.matcher(text2);
-            secondOk = secondMatcher.find();
+
+        ExecutorService executorService = Executors.newSingleThreadExecutor();
+        MatcherThread matcherThread = new MatcherThread(pattern, text1, text2); 
+        Future future = executorService.submit(matcherThread);
+        try {
+            boolean hadToTerminateThread = executorService.awaitTermination(3000, TimeUnit.MILLISECONDS);
+            log.debug("hadToTerminateThread: "+hadToTerminateThread);
+            log.debug("future is done: "+future.isDone());
+            if(future.isDone() && ! hadToTerminateThread) {
+                threadFinished = true;
+            }
         }
-        log.debug("CheckRegex result: " + this);
+        catch (InterruptedException e){
+            threadFinished = false;
+        }
+        if(!threadFinished){
+            log.debug("thread was terminated.");
+            throw new RuntimeException("thread.terminated");
+        }
+        firstOk = matcherThread.getFirstOk();
+        secondOk = matcherThread.getSecondOk();
+        
+        log.debug("CheckRegex result: " + firstOk);
     }
 
     public String getText1() {

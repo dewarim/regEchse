@@ -14,7 +14,7 @@ class PortalController {
         }
         catch (Exception e){
             log.debug("Failed to test regex.",e)
-            render(status: 500, text:message(code: 'regex.check.fail', args: [e.message]))
+            render(status: 500, text:message(code: 'regex.check.fail', args: [message(code:e.message)]))
         }
     }
     
